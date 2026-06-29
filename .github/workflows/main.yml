@@ -5,7 +5,7 @@ on:
     branches:
       - main
 
-
+# ตั้งค่า Permission ตามโจทย์ (contents, pages, id-token)
 permissions:
   contents: write
   pages: write
@@ -15,12 +15,12 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-     
-      - name: Checkout Code
+      
+      - name: badin-042
         uses: actions/checkout@v4
 
-    
-      - name: Deploy to GitHub Pages
+     
+      - name: actions/gh-pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: . 
