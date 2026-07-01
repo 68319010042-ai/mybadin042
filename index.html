@@ -1,27 +1,103 @@
-name: Deploy Static Web to GitHub Pages
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>หน้าเว็บของฉัน</title>
+    <style>
+        /* แถม CSS แบบง่าย ๆ ให้เว็บดูเป็นระเบียบขึ้นครับ */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        header {
+            background: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        nav {
+            background: #444;
+            text-align: center;
+            padding: 10px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0 15px;
+        }
+        nav a:hover {
+            color: #ffd700;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        .btn {
+            display: inline-block;
+            background: #007bff;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .btn:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
 
-on:
-  push:
-    branches:
-      - main
+    <header>
+        <h1>ยินดีต้อนรับสู่เว็บไซต์ของฉัน</h1>
+        <p>นี่คือโปรเจกต์ส่งเพื่อนบน GitHub</p>
+    </header>
 
-# 1. กำหนด Permission ตามโจทย์ (เปิดสิทธิ์ให้เขียน Pages และ id-token ได้)
-permissions:
-  contents: write
-  pages: write
-  id-token: write
+    <nav>
+        <a href="#">หน้าแรก</a>
+        <a href="#">เกี่ยวกับเรา</a>
+        <a href="#">ผลงาน</a>
+        <a href="#">ติดต่อเรา</a>
+    </nav>
 
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-      # ดึงโค้ดจาก Repository มาทำงาน
-      - name: Checkout Code
-        uses: actions/checkout@v4
+    <div class="container">
+        <h2>แนะนำตัวเบื้องต้น</h2>
+        <p>นี่คือย่อหน้าสำหรับใส่เนื้อหาของคุณ คุณสามารถพิมพ์ข้อความอธิบายโปรเจกต์ พิมพ์ประวัติตัวเอง หรือใส่ข้อมูลที่ต้องการให้เพื่อนหรืออาจารย์อ่านได้ตรงนี้เลยครับ</p>
+        
+        <hr> <h3>รายการสิ่งที่จะทำต่อไป</h3>
+        <ul>
+            <li>เขียนโค้ดเพิ่มเติมในส่วนของแบบฟอร์ม</li>
+            <li>อัปโหลดไฟล์ขึ้น GitHub ด้วย GitHub Desktop</li>
+            <li>ส่งลิงก์ให้เพื่อนตรวจงาน</li>
+        </ul>
 
-      # 2. ใช้ Action สำเร็จรูปสำหรับสร้างและส่งหน้าเว็บไปยัง GitHub Pages
-      - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          folder: . # ดึงไฟล์ทั้งหมดที่อยู่ชั้นนอกสุด (รวม index.html)
-          branch: gh-pages # ส่งไปสร้างกิ่งใหม่ที่ชื่อ gh-pages อัตโนมัติ
+        <hr>
+
+        <h3>ลิงก์ภายนอกและปุ่ม</h3>
+        <p>หากต้องการให้กดไปที่หน้าอื่น สามารถใช้ปุ่มด้านล่างนี้ได้:</p>
+        <a href="https://github.com" target="_blank" class="btn">ไปยัง GitHub</a>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 My Project. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
