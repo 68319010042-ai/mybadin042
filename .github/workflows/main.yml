@@ -1,15 +1,24 @@
-name : My First Workflow
+name: Deploy to GitHub Pages
 
+on:
+  push:
+    branches:
+      - main  # ระบบจะทำงานเมื่อมีการ push โค้ดลง branch main
 
-on: 
-    push:
-        branches: 
-            - gh-pages
+permissions:
+  contents: border
+  pages: write
+  id-token: write
 
-job: 
-    build:
-       runs-on: ubuntu-latest
-      steps:
-            - name: Say Hello
-              run: echo "Hello, World!"
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
 
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: . 
+          branch: gh-pages 
