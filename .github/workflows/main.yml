@@ -1,14 +1,10 @@
 name: Deploy to GitHub Pages
 
+# 💥 จุดสำคัญอยู่ตรงนี้: บอกให้บอทรันงานทันทีที่มีการ push โค้ดใหม่เข้ามา
 on:
   push:
     branches:
-      - main  # ระบบจะทำงานเมื่อมีการ push โค้ดลง branch main
-
-permissions:
-  contents: border
-  pages: write
-  id-token: write
+      - main  # ถ้าปกติคุณกดแก้โค้ดใน branch main ตรงนี้ต้องเป็น main
 
 jobs:
   deploy:
